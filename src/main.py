@@ -9,10 +9,10 @@ import json
 import requests
 import re
 from bs4 import BeautifulSoup
-import tlgm
+import src.telegrambot as telegrambot
 from datetime import datetime
 
-bot = tlgm.Bot('TOKEN')
+bot = telegrambot.Bot('TOKEN')
 prematchSentList = [] # Lista de jogos que ainda não começaram
 endingSentMatchList = [] # Lista de jogos que já começaram
 
@@ -220,7 +220,7 @@ def rules(game: GameDataDict, historic: list, htmlElement) -> None:
     print(f"Last Update: {datetime.now().strftime('%H:%M:%S - %d/%m/%Y')}"   )
     sleep(3)
 
-ChromeDriver = webdriver.Chrome("chromedriver.exe")
+ChromeDriver = webdriver.Chrome("../chromedriver/chromedriver.exe")
 ChromeDriver.get("https://www.bet365.com/#/IP/B151") # URL onde conseguimos as listas de jogos
 sleep(3)
 while True:

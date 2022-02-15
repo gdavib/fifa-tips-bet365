@@ -34,7 +34,7 @@ class Bot:
                 self.sendMessage(chat['id'], message)
     def getUpdates(self):
         offset = None
-        with open("telegram.json", "r+") as f:
+        with open("../configs/telegram.json", "r+") as f:
             data = json.loads(f.read())
             if data['lastUpdateId'] != None:
                 offset = data['lastUpdateId']
